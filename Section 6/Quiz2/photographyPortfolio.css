@@ -1,0 +1,22 @@
+img
+{
+    width: 30%;
+    float: left;
+    margin: 1.66%;
+}
+
+p
+{
+    font-family: Raleway;
+    font-size: 23px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+#headerDiv
+{
+    /*This can be done by adding a padding to the above paragraph*/
+    width: 30%;
+    margin-left: 1.66%; 
+    border-bottom: solid 2px lightgrey;
+}

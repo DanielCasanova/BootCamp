@@ -1,0 +1,27 @@
+h1
+{
+    text-align: center;
+}
+
+table
+{
+    margin: auto;
+}
+
+td
+{
+    width: 100px;
+    height: 100px;
+}
+
+.leftRight
+{
+    border-left: solid 1px darkblue;
+    border-right: solid 1px darkblue;
+}
+
+.topBottom
+{
+    border-top: solid 1px darkblue;
+    border-bottom: solid 1px darkblue;
+}

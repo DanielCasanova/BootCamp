@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Quiz 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body>
+    
+    <h1>Register</h1>
+
+    <form>
+        <div>
+            <label for="FirstName">First Name: </label>
+            <input type="text" name="FirstName" id="FirstName" placeholder="John" required>
+
+            <label for="LastName">Last Name: </label>
+            <input type="text" name="LastName" id="LastName" placeholder="Smith" required>
+        </div>
+
+        <div>
+            <label for="Male">Male</label>
+            <input type="radio" id="Male" name="Gender" value="Male">        
+
+            <label for="Female">Female</label>
+            <input type="radio" id="Female" name="Gender" value="Female">        
+
+            <label for="Other">Other</label>
+            <input type="radio" id="Other" name="Gender" value="Other">    
+        </div>   
+
+        <div>            
+            <label for="Email">e-mail: </label>
+            <input type="text" name="Email" id="Email" placeholder="something@example.com" required>
+
+            <label for="Password">Password: </label>
+            <input type="password" name="Password" id="Password" minlength="4" required>
+        </div>
+
+        <div>
+            <label for="Birthday">Birthday: </label>
+            <input type="date" id="Birthday" required>
+        </div>
+
+        <div>
+            <label for="Terms">Do you agree with the terms and conditions?</label>
+            <input type="checkbox" name="Terms" id="Terms" required>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+    
+</body>
+
+</html>
