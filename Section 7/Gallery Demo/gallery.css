@@ -2,3 +2,8 @@ body
 { 
     padding-top: 70px; 
 }
+
+.navbar-custom-col 
+{
+    background-color: #13366d;
+}
