@@ -1,0 +1,58 @@
+body 
+{ 
+    padding-top: 40px; 
+    height: 100vh;
+
+    font-family: Lato;
+    color: white;
+}
+
+hr
+{
+    border-top: 1px solid #f8f8f8;
+    /* Shadow effect*/
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); 
+}
+
+h1
+{
+    font-weight: 700;
+    font-size: 5em;
+}
+
+h1, h3
+{
+    text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
+                 0px 8px 13px rgba(0, 0, 0, 0.1),
+                 0px 18px 23px rgba(0, 0, 0, 0.1);
+}
+
+.bg 
+{
+    /* The image used */
+    background-image: url("./images/background.jpg");
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.center 
+{
+    padding-top: 10%;
+}
+
+.navbar
+{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.nav-item.active
+{
+    background-color: gray;
+}
