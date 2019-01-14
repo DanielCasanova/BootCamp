@@ -1,0 +1,9 @@
+#header
+{
+    background: url("images/vector-white-brick-pattern-background.jpg");
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
