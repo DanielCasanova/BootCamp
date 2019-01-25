@@ -5,6 +5,26 @@ body
     font-family: "Nunito", sans-serif;
 }
 
+.secondRow h2
+{
+    color: #ea1c2c;
+    font-weight: 100;
+    font-size: 2.5rem;
+}
+
+.secondRow p
+{
+    color: #f498b8;
+    font-weight: 100;
+    font-size: 1.125rem;
+    line-height: 2;
+}
+
+.rowSpacing
+{
+    margin-bottom: 100px;
+}
+
 #mainNavbar
 {
     font-size: 1.5rem;
