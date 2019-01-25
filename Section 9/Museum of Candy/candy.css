@@ -25,3 +25,23 @@ body
 {
     color: #ea1c2c;
 }
+
+#museumHeading span
+{
+    color: #ea1c2c;
+}
+
+#museumHeading h1
+{
+    font-weight: 100;
+    font-size: 4rem;
+}
+
+@media (max-width: 1200px)
+{
+    #museumHeading h1
+    {
+        font-weight: 100;
+        font-size: 3rem;
+    }
+}
