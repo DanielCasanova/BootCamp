@@ -1,0 +1,22 @@
+.pageSection
+{
+    width: 70vw;
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
+
+.centerContents
+{
+    display: flex;
+    justify-content: center;
+}
+
+.titleRegColor
+{
+    background-color: cornflowerblue;
+}
+
+#titleAndColor
+{
+    height: 20vh;
+}
