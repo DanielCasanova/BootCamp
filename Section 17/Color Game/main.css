@@ -1,14 +1,54 @@
+html, body, h1, h2, h3, p
+{
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+button
+{
+    min-height: 50px;
+    min-width: 50px;
+    height: 20vh;
+    width: 20vw;
+    max-height: 150px;
+    max-width: 150px;
+
+    margin-top: 15px;
+    border-radius: 25px;
+}
+
 .pageSection
 {
-    width: 70vw;
-    margin-left: 15vw;
-    margin-right: 15vw;
+    width: 50vw;
+    margin-left: 25vw;
+    margin-right: 25vw;
 }
 
 .centerContents
 {
     display: flex;
     justify-content: center;
+    flex-grow: 1;
+}
+
+.alignContents
+{
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.spaceBetweenContents
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.spaceEvenlyContents
+{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .titleRegColor
@@ -16,7 +56,30 @@
     background-color: cornflowerblue;
 }
 
+.infoRegColor
+{
+    background-color: antiquewhite;
+}
+
+.gameAreaRegColor
+{
+    background-color: rgb(25, 25, 25);
+}
+
 #titleAndColor
 {
+    min-height: 150px;
     height: 20vh;
+}
+
+#infoAndDiff
+{
+    min-height: 25px;
+    height: 3vh;
+}
+
+#gameArea
+{
+    min-height: 400px;
+    height:77vh;
 }
