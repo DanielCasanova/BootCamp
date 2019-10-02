@@ -25,29 +25,38 @@ button
     margin-right: 25vw;
 }
 
-.centerContents
+.flex
 {
     display: flex;
+}
+
+.flexColumnDir
+{
+    flex-direction: column;
+}
+
+.centerContents
+{
     justify-content: center;
-    flex-grow: 1;
 }
 
 .alignContents
 {
-    display: flex;
     align-items: center;
-    flex-grow: 1;
+}
+
+.alignTextCenter
+{
+    text-align: center;
 }
 
 .spaceBetweenContents
 {
-    display: flex;
     justify-content: space-between;
 }
 
 .spaceEvenlyContents
 {
-    display: flex;
     justify-content: space-evenly;
 }
 
