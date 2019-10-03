@@ -87,7 +87,7 @@ button
     height: 3vh;
 }
 
-#difficulty
+#difficultyEasy, #difficultyHard
 {
     margin: 0px 10px;
 }
