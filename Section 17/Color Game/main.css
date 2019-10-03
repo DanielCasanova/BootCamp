@@ -87,6 +87,11 @@ button
     height: 3vh;
 }
 
+#difficulty
+{
+    margin: 0px 10px;
+}
+
 #gameArea
 {
     min-height: 400px;
