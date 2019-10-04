@@ -18,11 +18,21 @@ button
     border-radius: 25px;
 }
 
+.disableSelect 
+{
+    user-select: none;
+}
+
 .pageSection
 {
     width: 50vw;
     margin-left: 25vw;
     margin-right: 25vw;
+}
+
+.hover
+{
+    color: red;
 }
 
 .flex
@@ -60,6 +70,13 @@ button
     justify-content: space-evenly;
 }
 
+.flexAdjustSize
+{
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+}
+
 .titleRegColor
 {
     background-color: cornflowerblue;
@@ -73,6 +90,13 @@ button
 .gameAreaRegColor
 {
     background-color: rgb(25, 25, 25);
+}
+
+.hoverSpace
+{
+    height: 100%;
+
+    padding: 0 5px;
 }
 
 #titleAndColor
