@@ -30,9 +30,14 @@ button
     margin-right: 25vw;
 }
 
-.hover
+.hoverColor
 {
-    color: red;
+    background-color: lightseagreen;
+}
+
+.selectedColor
+{
+    background-color: dodgerblue;
 }
 
 .flex
