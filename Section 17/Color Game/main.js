@@ -13,6 +13,8 @@ let correctColorR = 0;
 let correctColorG = 0;
 let correctColorB = 0;
 
+let numButtons = 6;
+
 /* */
 newColors.addEventListener("click", generateAndSetNewColor);
 
@@ -43,9 +45,9 @@ function generateAndSetNewColor()
 
     colorToGuess.innerHTML = `(${correctColorR}, ${correctColorG}, ${correctColorB})`;
 
-    correctButtonPos = Math.floor((Math.random() * 6));
+    correctButtonPos = Math.floor((Math.random() * numButtons));
 
-    for(let i=0; i<6; i++)
+    for(let i=0; i<numButtons; i++)
     {
         if(i === correctButtonPos)
         {
@@ -61,6 +63,8 @@ function generateAndSetNewColor()
             let col = "RGB(" + colorR + ", " + colorG + ", " + colorB + ")";
             colorButtons[i].style.backgroundColor = col;
         }
+
+        colorButtons[i].style.visibility = "visible";
     }
 }
 
@@ -79,7 +83,14 @@ function selectEasyDiff()
     easyDiffHover.classList.add("selectedColor");
     hardDiffHover.classList.remove("selectedColor");
 
-    // TODO: Change game to easy
+    numButtons = 3;
+
+    for(let i=3; i<6; i++)
+    {
+        colorButtons[i].style.visibility = "hidden";
+    }
+
+    generateAndSetNewColor();
 }
 
 function selectHardDiff()
@@ -87,24 +98,24 @@ function selectHardDiff()
     easyDiffHover.classList.remove("selectedColor");
     hardDiffHover.classList.add("selectedColor");
 
-    // TODO: Change game to hard
+    numButtons = 6;
+    generateAndSetNewColor();
 }
 
 function buttonClicked()
 {
-    console.log("Button Clicked");
     for(let i=0; i<6; i++)
     {
         if(colorButtons[i] === this)
         {
             if(i===correctButtonPos)
             {
-                console.log("Correct");
+                window.alert("YOU GOT IT!");
+                generateAndSetNewColor();
             }
             else
             {
-                colorButtons[i].style.display = "none";
-                console.log("Hiding");
+                colorButtons[i].style.visibility = "hidden";
             }
         }
     }
