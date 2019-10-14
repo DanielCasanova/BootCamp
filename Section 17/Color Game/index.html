@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Color Game</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+</head>
+
+<body>
+
+    <!-- Header and color to guess -->
+<div class="titleRegColor">
+
+    <div id="titleAndColor" class="pageSection flex flexColumnDir alignContents centerContents alignTextCenter">
+
+            <h3>THE GREAT</h2>
+            <h1>RGB<span id="colorToGuess"></span></h1>
+            <h3>GUESSING GAMES</h2>
+
+    </div>
+    
+</div>
+
+    <!-- Info and difficulty -->
+<div class="infoRegColor">
+    <div id="infoAndDiff" class="pageSection flex spaceEvenlyContents alignContents">
+            
+        <div id="newColorsHover" class="hoverSpace flex centerContents flexColumnDir">
+            <p id="newColors" class="disableSelect">NEW COLORS</p>
+        </div>
+
+        <div class="hoverSpace flex centerContents">
+            <div id="easyDiff" class="hoverSpace flex centerContents flexColumnDir">
+                <p id="difficultyEasy">EASY</p>
+            </div>
+            <div id="hardDiff" class="hoverSpace flex centerContents flexColumnDir">
+                <p id="difficultyHard">HARD</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    <!-- Game area -->
+<div class="gameAreaRegColor">
+    <div id="gameArea" class="pageSection">
+
+        <div class="flex spaceEvenlyContents">
+            <button name="colorButton"></button>
+            <button name="colorButton"></button>
+            <button name="colorButton"></button>
+        </div>
+
+        <div class="flex spaceEvenlyContents">
+            <button name="colorButton"></button>
+            <button name="colorButton"></button>
+            <button name="colorButton"></button>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="main.js"></script>
+
+</body>
+
+</html>
