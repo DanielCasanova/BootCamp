@@ -20,7 +20,7 @@ class App
             this.spanItems[i].addEventListener("click", this.deleteEntry);
         }
 
-        this.inputToDo.addEventListener("keyup", this.newEntry);
+        this.inputToDo.addEventListener("keyup", this.newEntry.bind(this));
     }
 
     strikeText()
@@ -31,7 +31,7 @@ class App
     deleteEntry(event)
     {
         event.stopPropagation();
-        
+
         // this == <span> 
         let liElement = this.parentNode;
 
@@ -43,14 +43,14 @@ class App
 
     newEntry(event)
     {
-        if(event.keyCode === 13)
+        if (event.keyCode === 13)
         {
-            let entryText = this.value;
-            this.value = "";
+            let entryText = this.inputToDo.value;
+            this.inputToDo.value = "";
 
             let li = document.createElement("li");
             li.appendChild(document.createTextNode(entryText));
-            //
+            this.ulList.appendChild(li);
         }
     }
 }
