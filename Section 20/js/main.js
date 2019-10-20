@@ -45,11 +45,19 @@ class App
     {
         if (event.keyCode === 13)
         {
+            let li = document.createElement("li");
+            let span = document.createElement("span");
             let entryText = this.inputToDo.value;
             this.inputToDo.value = "";
 
-            let li = document.createElement("li");
+            span.appendChild(document.createTextNode("X"));
+
+            span.addEventListener("click", this.deleteEntry);
+            li.addEventListener("click", this.strikeText);
+
+            li.appendChild(span);
             li.appendChild(document.createTextNode(entryText));
+
             this.ulList.appendChild(li);
         }
     }
