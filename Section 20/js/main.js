@@ -6,6 +6,7 @@ class App
         this.spanItems = document.getElementsByTagName("span");
         this.inputToDo = document.getElementById("inputToDo");
         this.ulList = document.getElementById("list");
+        this.inputToggle = document.getElementById("inputToggle");
     }
 
     init()
@@ -21,6 +22,7 @@ class App
         }
 
         this.inputToDo.addEventListener("keyup", this.newEntry.bind(this));
+        this.inputToggle.addEventListener("click", this.inputToggled.bind(this));
     }
 
     strikeText()
@@ -62,6 +64,22 @@ class App
             li.appendChild(document.createTextNode(entryText));
 
             this.ulList.appendChild(li);
+        }
+    }
+
+    inputToggled()
+    {
+        if(this.inputToDo.classList.contains("hidden"))
+        {
+            //this.inputToDo.classList.remove("remove");
+            this.inputToDo.classList.remove("hidden");
+            this.inputToDo.classList.add("show");
+        }
+        else
+        {
+            this.inputToDo.classList.remove("show");
+            this.inputToDo.classList.add("hidden");
+            //setTimeout(function() { this.inputToDo.classList.add("remove"); }, 550);
         }
     }
 }
