@@ -17,6 +17,19 @@ h1
     font-weight: normal;
 }
 
+span
+{
+    background: #e74c3c;
+    height: 40px;
+    margin-right: 20px;
+    text-align: center;
+    color: white;
+    width: 0px;
+    display: inline-block;
+    transition: 0.2s linear;
+    opacity: 0;
+}
+
 ul
 {
     list-style: none;
@@ -32,6 +45,17 @@ li
     color: #666;
 }
 
+li:nth-child(2n)
+{
+    background: #f7f7f7;
+}
+
+li:hover span
+{
+    width: 40px;
+    opacity: 1.0;
+}
+
 input
 {
     font-size: 18px;
@@ -40,6 +64,7 @@ input
     width: 100%;
     padding: 13px 13px 13px 20px;
     box-sizing: border-box;
+    border: 3px solid rgba(0, 0, 0, 0);
 }
 
 input:focus
@@ -47,11 +72,6 @@ input:focus
     background: white;
     border: 3px solid #2980b9;
     outline: none;
-}
-
-li:nth-child(2n)
-{
-    background: #f7f7f7;
 }
 
 .todoStrike
@@ -77,5 +97,5 @@ li:nth-child(2n)
     width: 360px;
     margin: 100px auto;
     background: #f7f7f7;
-    box-shadow: 0 0 3px rgba(0,0,0, 0.1);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 }
