@@ -47,14 +47,17 @@ class App
         {
             let li = document.createElement("li");
             let span = document.createElement("span");
+            let icon = document.createElement("i");
             let entryText = this.inputToDo.value;
             this.inputToDo.value = "";
-
-            span.appendChild(document.createTextNode("X"));
 
             span.addEventListener("click", this.deleteEntry);
             li.addEventListener("click", this.strikeText);
 
+            icon.classList.add("fa");
+            icon.classList.add("fa-trash");
+
+            span.appendChild(icon);
             li.appendChild(span);
             li.appendChild(document.createTextNode(entryText));
 
