@@ -1,0 +1,22 @@
+<% include ../partials/header %>
+<link rel="stylesheet" href="campgrounds.css">
+
+<header>
+    <h1>Welcome to YelpCamp!</h1>
+    
+    <p>View out hand-picked campgrounds from all over the world</p>
+
+    <a href="/campgrounds/new">Add new campground!</a>
+</header>
+
+
+
+<% campgroundsData.forEach((campground) =>
+{ %>
+    <div>
+        <h4><%= campground.name %></h4>
+        <img src="<%= campground.image %>">
+    </div>
+<% })%>
+
+<% include ../partials/footer %>

@@ -5,6 +5,7 @@ const port = 3000;
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }))
+app.use(express.static("views"));
 
 /** TEMP DATA */
 let campgroundsData = [
@@ -26,17 +27,17 @@ let campgroundsData = [
 // Get routes
 app.get("/", (request, response) =>
 {
-    response.render("landing");
+    response.render("landing/landing");
 });
 
 app.get("/campgrounds", (request, response) =>
 {
-    response.render("campgrounds", {campgroundsData:campgroundsData});
+    response.render("campgrounds/campgrounds", {campgroundsData:campgroundsData});
 });
 
 app.get("/campgrounds/new", (request, response) =>
 {
-    response.render("new");
+    response.render("new/new");
 });
 
 //***/
