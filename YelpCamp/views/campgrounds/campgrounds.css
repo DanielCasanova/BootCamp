@@ -1,0 +1,36 @@
+/* But flex, not grid */
+.campgroundsGrid
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.campgroundsGridChild
+{
+    margin: 5px;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    /* To ensure interior div control */
+    display: flex;
+    justify-content: center;
+}
+
+.campgroundsImage
+{
+    max-width: 350px;
+    max-height: auto;
+}
+
+.cardBorder
+{
+    padding: 4px;
+
+    border: 1px solid lightgray;
+    border-radius: 5px;
+
+    text-align: center;
+}
