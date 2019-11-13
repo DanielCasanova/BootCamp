@@ -20,6 +20,30 @@ let campgroundsData = [
     {
         name: "Lake bedrock",
         image: "https://live.staticflickr.com/2804/4297513549_294bea98ec_b.jpg"
+    },
+    {
+        name: "Man Camp",
+        image: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/1f760310385307.560e411f58c2c.jpeg"
+    },
+    {
+        name: "Fire pit",
+        image: "https://live.staticflickr.com/1794/30134174508_441a386a5e_b.jpg"
+    },
+    {
+        name: "Lake bedrock",
+        image: "https://live.staticflickr.com/2804/4297513549_294bea98ec_b.jpg"
+    },
+    {
+        name: "Man Camp",
+        image: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/1f760310385307.560e411f58c2c.jpeg"
+    },
+    {
+        name: "Fire pit",
+        image: "https://live.staticflickr.com/1794/30134174508_441a386a5e_b.jpg"
+    },
+    {
+        name: "Lake bedrock",
+        image: "https://live.staticflickr.com/2804/4297513549_294bea98ec_b.jpg"
     }];
 /** */
 
