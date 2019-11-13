@@ -1,13 +1,13 @@
-function myFunction()
+function hamburgerFunction()
 {
-    var x = document.getElementById("myTopnav");
+    let topNav = document.getElementById("myTopnav");
     
-    if (x.className === "topnav")
+    if (topNav.className === "topnav")
     {
-        x.className += " responsive";
+        topNav.className += " responsive";
     }
     else
     {
-        x.className = "topnav";
+        topNav.className = "topnav";
     }
 }
