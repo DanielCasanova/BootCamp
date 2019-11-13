@@ -69,16 +69,14 @@ h6
 
 .ycPrimaryButton
 {
-    box-shadow:inset 0px -3px 7px 0px #29bbff;
-	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
-	background-color:#2dabf9;
+    box-shadow:inset 0px -3px 7px 0px #4CAF50;
+	background-color:#4CAF50;
 	border-radius:3px;
 	border:1px solid #0b0e07;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
+	font-size:1rem;
 	padding:9px 23px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #263666;
@@ -86,8 +84,7 @@ h6
 
 .ycPrimaryButton:hover 
 {
-	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
-	background-color:#0688fa;
+	background-color:#38803a;
 }
 
 .ycPrimaryButton:active 

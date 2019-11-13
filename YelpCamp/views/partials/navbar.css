@@ -6,7 +6,6 @@
   
 .topnav a 
 {
-    float: left;
     display: block;
     color: #f2f2f2;
     text-align: center;
@@ -30,6 +29,16 @@
 .topnav .icon 
 {
     display: none;
+}
+
+.navFloatRight
+{
+    float: right;
+}
+
+.navFloatLeft
+{
+    float: left;
 }
   
 @media screen and (max-width: 600px) 
