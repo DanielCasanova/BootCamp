@@ -1,0 +1,22 @@
+{
+  "name": "yelpcamp",
+  "version": "0.1.0",
+  "description": "YelpCamp exercise.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Bootcamp",
+    "exercise"
+  ],
+  "author": "Daniel Casanova",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.7.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}

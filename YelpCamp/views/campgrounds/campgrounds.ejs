@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+<link rel="stylesheet" href="campgrounds.css">
+
+<header class="ycPageSize">
+    <div class="ycJumbotron">
+        <h1>Welcome to YelpCamp!</h1>
+        
+        <p>View out hand-picked campgrounds from all over the world</p>
+
+        <a href="/campgrounds/new" class="ycPrimaryButton">Add new campground!</a>
+    </div>
+</header>
+
+<div class="ycPageSize">
+    <div class="campgroundsGrid">
+        <% campgroundsData.forEach((campground) =>
+        { %>
+            <div class="campgroundsGridChild">
+                <!-- We want an interior div to control the border -->
+                <div class="cardBorder">
+                    <img class="campgroundsImage" src="<%= campground.image %>">
+                    <p><%= campground.name %></p>
+                </div>
+            </div>
+        <% })%>
+    </div>
+</div>
+
+<% include ../partials/footer %>
