@@ -10,9 +10,9 @@ const port = 3000;
 
 // MongoDB properties (without mongoose)
 // Connection URL
-const url = 'mongodb://localhost:27017';
+const url = 'mongodb://localhost:27017/yelp_camp';
 // Database Name
-const dbName = 'myproject';
+const dbName = 'yelp_camp';
 // Use connect method to connect to the server
 mongoClient.connect(url, function(err, client) 
 {
