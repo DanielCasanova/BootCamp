@@ -46,8 +46,92 @@ const campgroundSchema = new mongoose.Schema(
         image: String
     }
 );
+// Model - model variables use capitalized letters to start.
+const Campground = mongoose.model("Campground", campgroundSchema);
 
-/** TEMP DATA */
+// Sample create code
+/*Campground.create(
+    {
+        name: "Man Camp",
+        image: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/1f760310385307.560e411f58c2c.jpeg"
+    },
+    (error, element) =>
+    {
+        if(error)
+        {
+            console.log(error);
+        }
+        else
+        {
+            console.log("Created campground");
+            console.log(element);
+        }
+    }
+)*/
+
+//***/
+// Get routes
+app.get("/", (request, response) =>
+{
+    response.render("landing/landing");
+});
+
+app.get("/campgrounds", (request, response) =>
+{
+    Campground.find(
+        {},
+        (error, allCampgrounds) =>
+        {
+            if(error)
+            {
+                console.log(error);
+            }
+            else
+            {
+                response.render("campgrounds/campgrounds", {campgroundsData:allCampgrounds});
+            }
+        }
+    );
+});
+
+app.get("/campgrounds/new", (request, response) =>
+{
+    response.render("new/new");
+});
+
+//***/
+// Post routes
+app.post("/campgrounds", (request, response) =>
+{
+    const name = request.body.name;
+    const image = request.body.image;
+
+    let obj = {name: name, image, image};
+    
+    Campground.create(
+        obj,
+        (error, element) =>
+        {
+            if(error)
+            {
+                console.log(error);
+            }
+            else
+            {
+                console.log("Created campground");
+                console.log(element);
+                response.redirect("/");
+            }
+        }
+    );
+});
+
+// Start the app
+app.listen(port, () => console.log(`YelpCamp listening on port ${port}!`));
+
+
+
+/** TEMP DATA 
 let campgroundsData = [
     {
         name: "Man Camp",
@@ -85,37 +169,4 @@ let campgroundsData = [
         name: "Lake bedrock",
         image: "https://live.staticflickr.com/2804/4297513549_294bea98ec_b.jpg"
     }];
-/** */
-
-//***/
-// Get routes
-app.get("/", (request, response) =>
-{
-    response.render("landing/landing");
-});
-
-app.get("/campgrounds", (request, response) =>
-{
-    response.render("campgrounds/campgrounds", {campgroundsData:campgroundsData});
-});
-
-app.get("/campgrounds/new", (request, response) =>
-{
-    response.render("new/new");
-});
-
-//***/
-// Post routes
-app.post("/campgrounds", (request, response) =>
-{
-    const name = request.body.name;
-    const image = request.body.image;
-
-    let obj = {name: name, image, image};
-    campgroundsData.push(obj);
-
-    response.redirect("/");
-});
-
-// Start the app
-app.listen(port, () => console.log(`YelpCamp listening on port ${port}!`));
+ */
