@@ -11,18 +11,8 @@ const port = 3000;
 // MongoDB properties (without mongoose)
 // Connection URL
 const url = 'mongodb://localhost:27017/yelp_camp';
-// Database Name
+// Database Name nad client
 const dbName = 'yelp_camp';
-// Use connect method to connect to the server
-mongoClient.connect(url, function(err, client) 
-{
-    assert.equal(null, err);
-    console.log("Connected successfully to server");
-   
-    const db = client.db(dbName);
-   
-    client.close();
-});
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }))
@@ -78,7 +68,8 @@ app.get("/", (request, response) =>
 
 app.get("/campgrounds", (request, response) =>
 {
-    Campground.find(
+    // Mongoose
+    /*Campground.find(
         {},
         (error, allCampgrounds) =>
         {
@@ -91,7 +82,27 @@ app.get("/campgrounds", (request, response) =>
                 response.render("campgrounds/campgrounds", {campgroundsData:allCampgrounds});
             }
         }
-    );
+    );*/
+
+    // MongoDB
+    mongoClient.connect(url, (err, client) =>
+    {
+        assert.equal(null, err);
+        console.log("Connected successfully to server using MongoDB only!");
+       
+        const db = client.db(dbName);
+
+        const collection = db.collection('campgrounds');
+        // Find some documents
+        collection.find({}).toArray((err, allCampgrounds) =>
+         {
+            assert.equal(err, null);
+            
+            response.render("campgrounds/campgrounds", {campgroundsData:allCampgrounds});
+        });
+       
+        client.close();
+    });
 });
 
 app.get("/campgrounds/new", (request, response) =>
@@ -108,7 +119,8 @@ app.post("/campgrounds", (request, response) =>
 
     let obj = {name: name, image, image};
     
-    Campground.create(
+    // Mongoose
+    /*Campground.create(
         obj,
         (error, element) =>
         {
@@ -123,7 +135,32 @@ app.post("/campgrounds", (request, response) =>
                 response.redirect("/");
             }
         }
-    );
+    );*/
+
+    //MongoDB
+    mongoClient.connect(url, (err, client) =>
+    {
+        assert.equal(null, err);
+        console.log("Connected successfully to server using MongoDB only!");
+       
+        const db = client.db(dbName);
+
+        const collection = db.collection('campgrounds');
+        // Find some documents
+        collection.insertOne(
+            obj, 
+            (err, result) => 
+            {
+                assert.equal(err, null);
+
+                console.log("Inserted object to database");
+            }
+        );
+       
+        client.close();
+        // This redirect probably shouldn't be here
+        response.redirect("/");
+    });
 });
 
 // Start the app
