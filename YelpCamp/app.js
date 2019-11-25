@@ -28,12 +28,13 @@ const mongooseOptions =
     useUnifiedTopology: true
 }
 // Connection
-mongoose.connect("mongodb://localhost/yelp_camp", mongooseOptions);
+mongoose.connect("mongodb://localhost:27017/yelp_camp", mongooseOptions);
 // Schema
 const campgroundSchema = new mongoose.Schema(
     {
         name: String,
-        image: String
+        image: String,
+        description: String
     }
 );
 // Model - model variables use capitalized letters to start.
@@ -43,7 +44,8 @@ const Campground = mongoose.model("Campground", campgroundSchema);
 /*Campground.create(
     {
         name: "Man Camp",
-        image: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/1f760310385307.560e411f58c2c.jpeg"
+        image: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/1f760310385307.560e411f58c2c.jpeg",
+        description: "Campsite for MEN!"
     },
     (error, element) =>
     {
@@ -69,7 +71,7 @@ app.get("/", (request, response) =>
 app.get("/campgrounds", (request, response) =>
 {
     // Mongoose
-    /*Campground.find(
+    Campground.find(
         {},
         (error, allCampgrounds) =>
         {
@@ -79,13 +81,13 @@ app.get("/campgrounds", (request, response) =>
             }
             else
             {
-                response.render("campgrounds/campgrounds", {campgroundsData:allCampgrounds});
+                response.render("index/index", {campgroundsData:allCampgrounds});
             }
         }
-    );*/
+    );
 
     // MongoDB
-    mongoClient.connect(url, (err, client) =>
+    /*mongoClient.connect(url, (err, client) =>
     {
         assert.equal(null, err);
         console.log("Connected successfully to server using MongoDB only!");
@@ -102,13 +104,18 @@ app.get("/campgrounds", (request, response) =>
         });
        
         client.close();
-    });
+    });*/
 });
 
 app.get("/campgrounds/new", (request, response) =>
 {
     response.render("new/new");
 });
+
+app.get("/campgrounds/:id", (request, response) => 
+{
+    response.render("show/show");
+})
 
 //***/
 // Post routes
@@ -120,7 +127,7 @@ app.post("/campgrounds", (request, response) =>
     let obj = {name: name, image, image};
     
     // Mongoose
-    /*Campground.create(
+    Campground.create(
         obj,
         (error, element) =>
         {
@@ -135,10 +142,10 @@ app.post("/campgrounds", (request, response) =>
                 response.redirect("/");
             }
         }
-    );*/
+    );
 
     //MongoDB
-    mongoClient.connect(url, (err, client) =>
+    /*mongoClient.connect(url, (err, client) =>
     {
         assert.equal(null, err);
         console.log("Connected successfully to server using MongoDB only!");
@@ -160,7 +167,7 @@ app.post("/campgrounds", (request, response) =>
         client.close();
         // This redirect probably shouldn't be here
         response.redirect("/");
-    });
+    });*/
 });
 
 // Start the app

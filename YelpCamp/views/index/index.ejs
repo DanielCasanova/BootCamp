@@ -1,5 +1,5 @@
 <% include ../partials/header %>
-<link rel="stylesheet" href="campgrounds.css">
+<link rel="stylesheet" href="index.ejs">
 
 <header class="ycPageSize">
     <div class="ycJumbotron">
@@ -20,6 +20,9 @@
                 <div class="cardBorder">
                     <img class="campgroundsImage" src="<%= campground.image %>">
                     <p><%= campground.name %></p>
+                    <p>
+                        <a href="" class="ycPrimaryButton">More Info</a>
+                    </p>
                 </div>
             </div>
         <% })%>
