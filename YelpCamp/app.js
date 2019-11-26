@@ -114,7 +114,42 @@ app.get("/campgrounds/new", (request, response) =>
 
 app.get("/campgrounds/:id", (request, response) => 
 {
-    response.render("show/show");
+    // Mongoose
+    Campground.findById(request.params.id, (error, campground) =>
+    {
+        if(error)
+        {
+            console.log(error);
+        }
+        else
+        {
+            response.render("show/show", {campground: campground});
+        }
+    });
+
+    // MongoDB
+    /*mongoClient.connect(url, (err, client) =>
+    {
+        assert.equal(null, err);
+        console.log("Connected successfully to server using MongoDB only!");
+       
+        const db = client.db(dbName);
+
+        const collection = db.collection('campgrounds');
+        // Find by ID
+        const ObjejctID = require('mongodb').ObjectID;
+        const id = request.params.id;
+        const idToFind = new ObjejctID(id);
+
+        collection.find({_id: idToFind}).toArray((err, campground) =>
+         {
+            assert.equal(err, null);
+            
+            response.render("show/show", {campground: campground});
+        });
+       
+        client.close();
+    });*/
 })
 
 //***/
@@ -123,8 +158,9 @@ app.post("/campgrounds", (request, response) =>
 {
     const name = request.body.name;
     const image = request.body.image;
+    const description = request.body.description;
 
-    let obj = {name: name, image, image};
+    let obj = {name: name, image: image, description: description};
     
     // Mongoose
     Campground.create(

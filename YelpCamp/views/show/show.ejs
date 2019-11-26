@@ -2,7 +2,11 @@
 <link rel="stylesheet" href="/show/show.css">
 
 <div class="ycPageSize">
-    <h1></h1>
+    <h1><%= campground.name %></h1>
+
+    <img src="<%= campground.image %>">
+
+    <p><%= campground.description %></p>
 </div>
 
 <% include ../partials/footer %>
