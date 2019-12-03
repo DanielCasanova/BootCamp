@@ -66,9 +66,34 @@ app.get("/blogs", (request, response) =>
     );
 });
 
+app.get("/blogs/new", (request, response) =>
+{   
+    response.render("new/new");
+});
+
 // --- PUT ---
 
 // --- POST ---
+app.post("/blogs", (request, response) =>
+{
+
+    Blog.create(
+        request.body.blog,
+        (error, newBlog) =>
+        {
+            if(error)
+            {
+                console.log("Unable to create new blog");
+                response.render("new/new");
+            }
+            else
+            {
+                console.log("Created new blog");
+                response.redirect("/blogs");
+            }
+        }
+    );
+});
 
 // Start the app
 app.listen(port, () => console.log(`BlogApp listening on port ${port}!`));
