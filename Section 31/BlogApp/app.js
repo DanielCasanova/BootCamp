@@ -71,6 +71,21 @@ app.get("/blogs/new", (request, response) =>
     response.render("new/new");
 });
 
+app.get("/blogs/:id", (request, response) =>
+{   
+    Blog.findById(request.params.id, (error, foundBlog) =>
+    {
+        if(error)
+        {
+            response.redirect("/blogs");
+        }
+        else
+        {
+            response.render("show/show", {blog: foundBlog});
+        }
+    });
+});
+
 // --- PUT ---
 
 // --- POST ---
