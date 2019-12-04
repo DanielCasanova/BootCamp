@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const methodOverride = require('method-override');
 const app = express();
 // App port
 const port = 3000;
@@ -8,6 +9,7 @@ const port = 3000;
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static("views"));
+app.use(methodOverride('_method'))
 
 // MongoDB with mongoose
 // Options
@@ -86,7 +88,41 @@ app.get("/blogs/:id", (request, response) =>
     });
 });
 
+app.get("/blogs/:id/edit", (request, response) =>
+{
+    Blog.findById(request.params.id, (error, foundBlog) =>
+    {
+        if(error)
+        {
+            response.redirect("/blogs");
+        }
+        else
+        {
+            response.render("edit/edit", {blog: foundBlog});
+        }
+    });
+});
+
 // --- PUT ---
+app.put( "/blogs/:id", (request, response) =>
+{
+    console.log("edit by put");
+    Blog.findByIdAndUpdate(
+        request.params.id,
+        request.body.blog,
+        (error, updatedBlog) =>
+        {
+            if(error)
+            {
+                response.redirect("/blogs");
+            }
+            else
+            {
+                response.redirect("/blogs/" + request.params.id);
+            }
+        }
+    );
+});
 
 // --- POST ---
 app.post("/blogs", (request, response) =>
