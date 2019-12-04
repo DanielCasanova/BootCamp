@@ -106,7 +106,6 @@ app.get("/blogs/:id/edit", (request, response) =>
 // --- PUT ---
 app.put( "/blogs/:id", (request, response) =>
 {
-    console.log("edit by put");
     Blog.findByIdAndUpdate(
         request.params.id,
         request.body.blog,
@@ -127,7 +126,6 @@ app.put( "/blogs/:id", (request, response) =>
 // --- POST ---
 app.post("/blogs", (request, response) =>
 {
-
     Blog.create(
         request.body.blog,
         (error, newBlog) =>
@@ -140,6 +138,26 @@ app.post("/blogs", (request, response) =>
             else
             {
                 console.log("Created new blog");
+                response.redirect("/blogs");
+            }
+        }
+    );
+});
+
+// --- DELETE ---
+app.delete("/blogs/:id", (request, response) =>
+{
+    Blog.findByIdAndRemove(
+        request.params.id,
+        request.body.blog,
+        (error) =>
+        {
+            if(error)
+            {
+                response.redirect("/blogs");
+            }
+            else
+            {
                 response.redirect("/blogs");
             }
         }
