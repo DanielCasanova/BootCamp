@@ -1,6 +1,8 @@
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require('express');
+const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+const expressSanitizer = require('express-sanitizer');
+
 const app = express();
 // App port
 const port = 3000;
@@ -9,6 +11,7 @@ const port = 3000;
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static("views"));
+app.use(expressSanitizer());
 app.use(methodOverride('_method'))
 
 // MongoDB with mongoose
@@ -106,6 +109,9 @@ app.get("/blogs/:id/edit", (request, response) =>
 // --- PUT ---
 app.put( "/blogs/:id", (request, response) =>
 {
+    // Sanitize the body to remove any harmful scripts
+    request.body.Blog.body = request.sanitize(request.body.Blog.body);
+
     Blog.findByIdAndUpdate(
         request.params.id,
         request.body.blog,
@@ -126,6 +132,9 @@ app.put( "/blogs/:id", (request, response) =>
 // --- POST ---
 app.post("/blogs", (request, response) =>
 {
+    // Sanitize the body to remove any harmful scripts
+    request.body.Blog.body = request.sanitize(request.body.Blog.body);
+
     Blog.create(
         request.body.blog,
         (error, newBlog) =>
